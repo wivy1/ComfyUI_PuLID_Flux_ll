@@ -618,7 +618,7 @@ def pulid_outer_sample_wrappers_with_override(wrapper_executor, noise, latent_im
     cfg_guider = wrapper_executor.class_obj
     PULID_model_patch = add_model_patch_option(cfg_guider, PatchKeys.pulid_patch_key_attrs)
     PULID_model_patch['latent_image_shape'] = latent_image.shape
-    
+
     diffusion_model = cfg_guider.model_patcher.model.diffusion_model
     set_hook(diffusion_model, pulid_forward_orig)
     try:
